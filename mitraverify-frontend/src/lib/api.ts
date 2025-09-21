@@ -5,12 +5,19 @@
 
 // API base URL with fallbacks for different environments
 const getApiBaseUrl = () => {
-  // Production API URL (you'll need to deploy your backend)
-  if (process.env.NODE_ENV === 'production') {
-    return process.env.NEXT_PUBLIC_API_URL || 'https://your-backend-api.herokuapp.com';
+  // Always use environment variable if available
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
   }
+  
+  // Production fallback (you'll need to deploy your backend)
+  if (process.env.NODE_ENV === 'production') {
+    console.warn('NEXT_PUBLIC_API_URL not set in production. Please configure your backend API URL.');
+    return 'https://api.mitraverify.com'; // Placeholder - replace with your actual backend URL
+  }
+  
   // Development/local URL
-  return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+  return 'http://localhost:8000';
 };
 
 const API_BASE_URL = getApiBaseUrl();
