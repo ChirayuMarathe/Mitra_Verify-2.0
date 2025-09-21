@@ -9,16 +9,19 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   
-  // Trailing slash for static hosting
-  trailingSlash: true,
+  // Add trailing slash for better compatibility
+  trailingSlash: false,
   
-  // Disable linting and type checking for build
+  // Disable server-side features for static export
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
+  
+  // Ensure proper asset handling
+  assetPrefix: '',
   
   // Environment variables
   env: {
