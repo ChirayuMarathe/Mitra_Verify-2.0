@@ -1,15 +1,10 @@
 [build]
   command = "npm run build"
-  publish = "out"
+  publish = ".next"
 
-[build.environment]
-  NODE_VERSION = "18"
-
-# Simple SPA redirect - all routes go to index.html
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Use Netlify's Next.js integration
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 # Headers for security and performance
 [[headers]]

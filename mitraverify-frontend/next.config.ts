@@ -1,27 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enable static export for Netlify
-  output: 'export',
+  // Remove static export - use regular Next.js
+  // output: 'export',
   
-  // Disable image optimization for static export
+  // Keep image optimization disabled for compatibility
   images: {
     unoptimized: true,
   },
   
-  // Add trailing slash for better compatibility
-  trailingSlash: false,
+  // Add trailing slash
+  trailingSlash: true,
   
-  // Disable server-side features for static export
+  // Disable problematic features
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  
-  // Ensure proper asset handling
-  assetPrefix: '',
   
   // Environment variables
   env: {

@@ -1,2 +1,4 @@
-# Simple SPA redirect for Netlify
-/*    /index.html   200
+# Explicit redirects for each route
+/api-playground/*   /api-playground/index.html   200
+/results/*          /results/index.html          200
+/*                  /index.html                  200
